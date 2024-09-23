@@ -8,5 +8,7 @@ jobs:
       - run: node --version
       - run: npm --version
       - uses: actions/checkout@4
+        with:
+            fetch-depth: 0
       - run: npm install
       - run: node app.js
