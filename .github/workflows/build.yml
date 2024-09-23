@@ -7,8 +7,10 @@ jobs:
     steps:
       - run: node --version
       - run: npm --version
-      - uses: actions/checkout@4
+      - name: checkout the repo
+        uses: actions/checkout@v3
         with:
-            fetch-depth: 0
+          persist-credentials: false
+          ref: ${{ github.event.inputs.checkoutRef }}
       - run: npm install
       - run: node app.js
